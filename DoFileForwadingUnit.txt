@@ -1,0 +1,90 @@
+vsim -gui work.forwardingunit
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui 
+# Start time: 11:37:12 on Apr 25,2019
+# ** WARNING: ModelSim PE Student Edition license key will expire as of (null).
+#   Please go to http://www.model.com and download the ModelSim PE Student Edition update.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.forwardingunit(myforwardingunit)
+add wave -position insertpoint  \
+sim:/forwardingunit/MulMem \
+sim:/forwardingunit/MulWB \
+sim:/forwardingunit/RsExec \
+sim:/forwardingunit/RdExec \
+sim:/forwardingunit/RsMem \
+sim:/forwardingunit/RdMem \
+sim:/forwardingunit/RsWB \
+sim:/forwardingunit/RdWB \
+sim:/forwardingunit/WBControlMem \
+sim:/forwardingunit/WBControlWB \
+sim:/forwardingunit/ForwardOP1Signal \
+sim:/forwardingunit/ForwardOP2Signal
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Ali  Hostname: OP-PC  ProcessID: 2700
+# 
+#           Attempting to use alternate WLF file "./wlftc6gx7a".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftc6gx7a
+# 
+force -freeze sim:/forwardingunit/MulMem 0 0
+force -freeze sim:/forwardingunit/MulWB 0 0
+force -freeze sim:/forwardingunit/RsExec 3'h3 0
+force -freeze sim:/forwardingunit/RdExec 3'h4 0
+force -freeze sim:/forwardingunit/RsMem 3'h0 0
+force -freeze sim:/forwardingunit/RdMem 3'h0 0
+force -freeze sim:/forwardingunit/RsMem 3'h1 0
+force -freeze sim:/forwardingunit/RsWB 3'h0 0
+force -freeze sim:/forwardingunit/RdWB 3'h1 0
+force -freeze sim:/forwardingunit/WBControlMem 5'b01000 0
+force -freeze sim:/forwardingunit/WBControlWB 5'h01000 0
+run
+force -freeze sim:/forwardingunit/RdMem 3'h3 0
+run
+force -freeze sim:/forwardingunit/RsWB 3'h3 0
+run
+force -freeze sim:/forwardingunit/RdMem 3'h5 0
+force -freeze sim:/forwardingunit/RdWB 3'h4 0
+run
+run
+force -freeze sim:/forwardingunit/WBControlWB 5'b01000 0
+run
+force -freeze sim:/forwardingunit/RsExec 3'h1 0
+run
+force -freeze sim:/forwardingunit/RdMem 3'h1 0
+run
+force -freeze sim:/forwardingunit/MulMem 1 0
+force -freeze sim:/forwardingunit/RsMem 3'h4 0
+run
+force -freeze sim:/forwardingunit/MulMem 0 0
+force -freeze sim:/forwardingunit/MulWB 1 0
+force -freeze sim:/forwardingunit/RsMem 3'h0 0
+force -freeze sim:/forwardingunit/RsExec 3'h4 0
+force -freeze sim:/forwardingunit/RdWB 3'h3 0
+run
+force -freeze sim:/forwardingunit/RdWB 3'h4 0
+force -freeze sim:/forwardingunit/RdExec 3'h3 0
+run
+
+

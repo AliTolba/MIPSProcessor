@@ -1,0 +1,38 @@
+vsim -gui work.loadusedetectionunit
+# vsim 
+# Start time: 12:40:16 on Apr 25,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.loadusedetectionunit(myloadusedetectionunit)
+add wave -position insertpoint  \
+sim:/loadusedetectionunit/RsDSig \
+sim:/loadusedetectionunit/RdDsig \
+sim:/loadusedetectionunit/RdEsig \
+sim:/loadusedetectionunit/MemWriteESig \
+sim:/loadusedetectionunit/FDBufferEnable
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Ali  Hostname: OP-PC  ProcessID: 2700
+# 
+#           Attempting to use alternate WLF file "./wlftr0q3rn".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftr0q3rn
+# 
+force -freeze sim:/loadusedetectionunit/MemWriteESig 0 0
+force -freeze sim:/loadusedetectionunit/RsDSig 3'h3 0
+force -freeze sim:/loadusedetectionunit/RdDsig 3'h5 0
+force -freeze sim:/loadusedetectionunit/RdEsig 3'h6 0
+run
+force -freeze sim:/loadusedetectionunit/RdDsig 3'h4 0
+run
+force -freeze sim:/loadusedetectionunit/RdEsig 3'h4 0
+run
+force -freeze sim:/loadusedetectionunit/MemWriteESig 1 0
+run
+force -freeze sim:/loadusedetectionunit/RdEsig 3'h3 0
+run
+force -freeze sim:/loadusedetectionunit/RdEsig 3'h7 0
+run

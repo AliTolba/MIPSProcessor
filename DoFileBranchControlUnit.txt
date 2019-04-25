@@ -1,0 +1,39 @@
+vsim -gui work.branchcontrolunit
+# vsim 
+# Start time: 12:35:56 on Apr 25,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.branchcontrolunit(mybranchcontrolunit)
+add wave -position insertpoint  \
+sim:/branchcontrolunit/OpCodeExecuteSig \
+sim:/branchcontrolunit/FlagRegisterSig \
+sim:/branchcontrolunit/BranchControlOutSig
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Ali  Hostname: OP-PC  ProcessID: 2700
+# 
+#           Attempting to use alternate WLF file "./wlftc18b54".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftc18b54
+# 
+force -freeze sim:/branchcontrolunit/OpCodeExecuteSig 5'b01111 0
+force -freeze sim:/branchcontrolunit/FlagRegisterSig 3'b111 0
+run
+force -freeze sim:/branchcontrolunit/OpCodeExecuteSig 5'b10101 0
+run
+force -freeze sim:/branchcontrolunit/OpCodeExecuteSig 5'b10110 0
+run
+force -freeze sim:/branchcontrolunit/OpCodeExecuteSig 5'h17 0
+run
+force -freeze sim:/branchcontrolunit/FlagRegisterSig 3'h0 0
+run
+force -freeze sim:/branchcontrolunit/OpCodeExecuteSig 5'b11000 0
+run
+force -freeze sim:/branchcontrolunit/OpCodeExecuteSig 5'b11001 0
+run
+force -freeze sim:/branchcontrolunit/OpCodeExecuteSig 5'h5 0
+run
+
