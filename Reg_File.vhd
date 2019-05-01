@@ -111,9 +111,8 @@ begin
         else read_Rs_enable <= '0';
         end if;
     end process;
-    process (Clk,In_port_control_signal) is 
+    process (Clk) is 
     begin
-        if In_port_control_signal = '1' then read_Rd_enable <= '0';
         elsif Clk' event and Clk = '0' then read_Rd_enable <= '1';
         else read_Rd_enable <= '0';
         end if;
