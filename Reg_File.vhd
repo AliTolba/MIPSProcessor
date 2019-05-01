@@ -113,7 +113,7 @@ begin
     end process;
     process (Clk) is 
     begin
-        elsif Clk' event and Clk = '0' then read_Rd_enable <= '1';
+        if Clk' event and Clk = '0' then read_Rd_enable <= '1';
         else read_Rd_enable <= '0';
         end if;
     end process;
