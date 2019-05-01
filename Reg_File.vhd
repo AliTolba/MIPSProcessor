@@ -92,6 +92,7 @@ begin
     with (Rd_read_address_equal_Rs_write_address) select
     write_Rs_enable <= '0' when "000",
     write_Rs_enable_dueto_WB_control_signal when others;
+
     -- after this operation for example if Wb control signal was 00 then the two decoders will be disabled thus thier outputs will be 00000000 and 00000000 and OR-ing them will lead to 00000000, hence the enable of all registers will be 0 (no writing)
     -- the value of the OR-ing 
     Rs_write_enable_OR_Rd_write_enable <= (write_Rs_address_decoder_output or write_Rd_address_decoder_output);
@@ -110,9 +111,10 @@ begin
         else read_Rs_enable <= '0';
         end if;
     end process;
-    process (Clk) is 
+    process (Clk,In_port_control_signal) is 
     begin
-        if Clk' event and Clk = '0' then read_Rd_enable <= '1';
+        if In_port_control_signal = '1' then read_Rd_enable <= '0';
+        elsif Clk' event and Clk = '0' then read_Rd_enable <= '1';
         else read_Rd_enable <= '0';
         end if;
     end process;
