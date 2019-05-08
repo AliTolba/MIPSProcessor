@@ -16,7 +16,7 @@ begin
 	begin
 		if reset = '1' then
 		b<=(others=>'0');
-		elsif clck' event and clck = '1' and enable = '1' then
+		elsif clck = '1' and enable = '1' then
 		b<=a;
 		end if;
 	end process;
