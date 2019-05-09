@@ -12,11 +12,11 @@ end entity;
 
 Architecture a_16bitReg of sixten_bitReg is
 begin
-	process(clck,reset)
+	process(clck,reset,enable)
 	begin
 		if reset = '1' then
 		b<=(others=>'0');
-		elsif clck = '1' and enable = '1' then
+		elsif  clck = '1' and enable = '1'  then
 		b<=a;
 		end if;
 	end process;
